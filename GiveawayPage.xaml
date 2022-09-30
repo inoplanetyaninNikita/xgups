@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             xmlns:local="clr-namespace:XGups"
+             x:Class="XGups.GiveawayPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:DaysTypeToColorConverter x:Key="colorConverter" />
+            <local:DaysTypeToColorConverterForFonts x:Key="colorCForFonts" />
+            <local:LessonsTypeToColorConverter x:Key="lcolor" />
+            <local:LessonsTypeToColorConverterForFonts x:Key="'lcolorCForFonts" />
+            <local:LessonsTypeToVisibleConverter x:Key="'lvisible" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <StackLayout >
+            <StackLayout.Background>
+                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"   
+             Endpoint defaults to (1,1) -->
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#9191FF"
+                          Offset="0" />
+                    <GradientStop Color="#6A6AFF"
+                          Offset="0.2" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Grid HeightRequest="10"></Grid>
+            <Label  Margin="85,5,0,0" Text="Системы" FontFamily="RubikM" FontSize="25" TextColor="White" />
+            <Label  HorizontalOptions="Center" Margin="0,0,0,0" Text="искусственного" FontFamily="RubikM" FontSize="25" TextColor="White" />
+            <Label  HorizontalOptions="End" Margin="0,0,85,0" Text="интеллекта" FontFamily="RubikM" FontSize="25" TextColor="White" />
+
+            <yummy:PancakeView 
+                Margin="0"
+                CornerRadius="60,60,0,0"
+                HeightRequest="580"
+                BackgroundColor="#FFFFFF"
+                VerticalOptions="EndAndExpand">
+                <StackLayout>
+                    
+                    <ScrollView >
+                        <StackLayout>
+                            <Grid HeightRequest="20"/>
+                            <Image x:Name="PartyIMG" Source="Lottery.png" HeightRequest="150"/>
+                            <Label Margin="0,20,0,0" HorizontalOptions="Center"  Text="Розыгрыш !" FontSize="40" TextColor="Black" FontFamily="RubikR" ></Label>
+                            <BoxView Margin="50,20,50,0" Color="Gray"  CornerRadius="5" HeightRequest="2" />
+                            <Label x:Name="Description" Margin="40,20,40,0" HorizontalTextAlignment="Center" Text="Делаю бесплатно 2 лаб. работы по СИИ, чтоб участвовать нажми на кнопку!"  TextColor="Black" FontFamily="RubikL" FontSize="25" />
+                            <Label x:Name="HumanName" Margin="40,20,40,0"  HorizontalTextAlignment="Center" Text="Тороповский Никита"  TextColor="Gray" FontFamily="RubikL" FontSize="20" />
+                            <Button  x:Name="Register" Clicked="Register_Clicked" Margin="50,0,50,0" Text="Участвовать !" TextTransform="None" BackgroundColor="#9191FF" TextColor="White" CornerRadius="10"/>
+                            <ActivityIndicator x:Name="Activity" IsRunning="False"  Color="#9191FF" ></ActivityIndicator>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

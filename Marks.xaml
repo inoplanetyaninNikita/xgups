@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             x:Class="XGups.Marks">
+    <ContentPage.Content>
+
+        <StackLayout >
+            <StackLayout.Background>
+                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"   
+             Endpoint defaults to (1,1) -->
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#9191FF"
+                          Offset="0" />
+                    <GradientStop Color="#6A6AFF"
+                          Offset="0.2" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Label  Margin="30,20,0,20" Text="Оценки" FontFamily="RubikB" FontSize="30" TextColor="White" />
+
+            <yummy:PancakeView 
+                Margin="0"
+                CornerRadius="60,60,0,0"
+                BackgroundColor="#FFFFFF"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+
+                    <ScrollView >
+
+                        <StackLayout>
+                            <StackLayout x:Name="LoadingGrid" IsVisible="false" Margin="50" HorizontalOptions="Fill">
+                                <Grid VerticalOptions="StartAndExpand"/>
+                                <ActivityIndicator Color="#9191FF" IsRunning="True" HeightRequest="100">
+                                </ActivityIndicator>
+                                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Подождите секунду." FontSize="25" TextColor="Black" FontFamily="RubikM"/>
+                                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Грузятся данные." FontSize="20" TextColor="DimGray" FontFamily="RubikM"/>
+                            </StackLayout>
+                            <StackLayout x:Name="DataGrid" IsVisible="true" >
+                                <StackLayout Orientation="Horizontal" Margin="60,40,40,20">
+                                    <Label VerticalOptions="Center"  Text="Семестр:" FontSize="25" TextColor="Black" FontFamily="RubikM" ></Label>
+                                    <Picker x:Name="PickerSemestr" TextColor="Black" VerticalOptions="Center" WidthRequest="30" HorizontalTextAlignment="Center" FontFamily="RubikR" FontSize="25" SelectedIndexChanged="Picker_SelectedIndexChanged" >
+                                    </Picker>
+                                </StackLayout>
+                                <BoxView Margin="30,00,30,0" Color="Gray"  CornerRadius="5" HeightRequest="2" />
+                                <StackLayout Margin="0,20,0,0" BindableLayout.ItemsSource="{Binding Mark}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame Margin="30,0,30,0" BackgroundColor="#6A6AFF" CornerRadius="20">
+                                                <StackLayout Padding="0,10,0,10" >
+                                                    <Label Text="{Binding Name}" FontFamily="RubikR" FontSize="18" TextColor="White" />
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Margin="0,10,0,0" HorizontalOptions="StartAndExpand" FontFamily="RubikR" FontSize="15" TextColor="LightGray">
+                                                            <Label.Text>
+                                                                <MultiBinding StringFormat="{}{0}: {1}.">
+                                                                    <Binding Path="TypeOfWork" />
+                                                                    <Binding Path="Mark" />
+                                                                </MultiBinding>
+                                                            </Label.Text>
+                                                        </Label>
+                                                    </StackLayout>
+                                                
+                                        </StackLayout>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </StackLayout>
+                           
+                            
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

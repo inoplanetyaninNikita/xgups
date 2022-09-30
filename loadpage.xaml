@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XGups.loadpage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#6A6AFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <StackLayout.Background>
+                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"   
+             Endpoint defaults to (1,1) -->
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#9191FF"
+                          Offset="0.2" />
+                    <GradientStop Color="#6A6AFF"
+                          Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label x:Name="fStep" Opacity="1" Margin="0,-20,0,0" Text="Загрузка расписания." TextColor="White" FontFamily="RubikM" FontSize="30" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

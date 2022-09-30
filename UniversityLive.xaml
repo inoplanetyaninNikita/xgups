@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XGups.UniversityLive"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+    xmlns:local="clr-namespace:XGups"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout.Background>
+                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"   
+             Endpoint defaults to (1,1) -->
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#9191FF"
+                          Offset="0" />
+                    <GradientStop Color="#6A6AFF"
+                          Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Frame Margin="20,20,20,0" CornerRadius="20"  VerticalOptions="StartAndExpand">
+                
+                <StackLayout>
+                    <Label HorizontalOptions="StartAndExpand" Margin="25,0,0,0" Text="Мероприятия"  FontFamily="RubikM" FontSize="30" TextColor="Black" />
+                    <BoxView CornerRadius="5" HeightRequest="1" BackgroundColor="Gray"></BoxView>
+                    <Grid HeightRequest="5"></Grid>
+                    <Frame Margin="0,0,0,10" Padding="0" HasShadow="True">
+                        <Grid>
+                            <StackLayout Orientation="Horizontal" Padding="0" BackgroundColor="#FAFAFA">
+                                <Frame HorizontalOptions="EndAndExpand" Padding="0" HasShadow="False">
+                                    <Grid>
+                                        <Image HeightRequest="100" WidthRequest="200" Aspect="AspectFill" Source="pomoika2.jpg" Opacity="0.9"/>
+                                        <Frame >
+                                            <Frame.Background>
+                                                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"     Endpoint defaults to (1,1) -->
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,1">
+                                                    <GradientStop Color="#FAFAFA" Offset="0" />
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                </LinearGradientBrush>
+
+                                            </Frame.Background>
+                                        </Frame>
+                                        <Frame  >
+                                            <Frame.Background>
+                                                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"     Endpoint defaults to (1,1) -->
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,1">
+                                                    <GradientStop Color="#FAFAFA" Offset="0" />
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                </LinearGradientBrush>
+
+                                            </Frame.Background>
+                                        </Frame>
+                                        <Frame WidthRequest="10" >
+                                            <Frame.Background>
+                                                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"     Endpoint defaults to (1,1) -->
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,1">
+                                                    <GradientStop Color="#FAFAFA" Offset="0" />
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                </LinearGradientBrush>
+
+                                            </Frame.Background>
+                                        </Frame>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout >
+                                <StackLayout Orientation="Horizontal" Padding="0">
+                                    <Label  Margin="15,10,0,0" Text="Студент. научное общество"  FontFamily="RubikR" FontSize="20" TextColor="Black" />
+                                    <Image HorizontalOptions="EndAndExpand" Margin="15,10,15,0"  HeightRequest="20"  Aspect="AspectFit" Source="notificationActivityFILL.png"/>
+                                </StackLayout>
+                                <Label  Margin="15,-5,0,0"  Text="конференация на тему «IT»"  FontFamily="RubikL" FontSize="20" TextColor="Gray" />
+                                <StackLayout  HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" Orientation="Horizontal">
+                                    <Image  Margin="15,15,0,15" HeightRequest="20"  Aspect="AspectFit" Source="calendar.png"/>
+                                    <Label  Margin="0,15,0,0" Text="228 Октября"  FontFamily="RubikR" FontSize="20" TextColor="Black" />
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Grid>
+                    </Frame>
+                    <Frame Margin="0,0,0,10" Padding="0" HasShadow="True">
+                        <Grid>
+                            <StackLayout Orientation="Horizontal" Padding="0" BackgroundColor="#FAFAFA">
+                                <Frame HorizontalOptions="EndAndExpand" Padding="0" HasShadow="False">
+                                    <Grid>
+                                        <Image HeightRequest="100" WidthRequest="200" Aspect="AspectFill" Source="pomoika3.jpg" Opacity="0.9"/>
+                                        <Frame >
+                                            <Frame.Background>
+                                                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"     Endpoint defaults to (1,1) -->
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,1">
+                                                    <GradientStop Color="#FAFAFA" Offset="0" />
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                </LinearGradientBrush>
+
+                                            </Frame.Background>
+                                        </Frame>
+                                        <Frame  >
+                                            <Frame.Background>
+                                                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"     Endpoint defaults to (1,1) -->
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,1">
+                                                    <GradientStop Color="#FAFAFA" Offset="0" />
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                </LinearGradientBrush>
+
+                                            </Frame.Background>
+                                        </Frame>
+                                        <Frame WidthRequest="10" >
+                                            <Frame.Background>
+                                                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"     Endpoint defaults to (1,1) -->
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,1">
+                                                    <GradientStop Color="#FAFAFA" Offset="0" />
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                </LinearGradientBrush>
+
+                                            </Frame.Background>
+                                        </Frame>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout >
+                                <StackLayout Orientation="Horizontal" Padding="0">
+                                    <Label  Margin="15,10,0,0" Text="Проф. орг. студентов"  FontFamily="RubikR" FontSize="20" TextColor="Black" />
+                                    <Image HorizontalOptions="EndAndExpand" Margin="15,10,15,0"  HeightRequest="20"  Aspect="AspectFit" Source="notificationActivityFILL.png"/>
+                                </StackLayout>
+                                <Label  Margin="15,-5,0,0"  Text="студент года"  FontFamily="RubikL" FontSize="20" TextColor="Gray" />
+                                <StackLayout  HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" Orientation="Horizontal">
+                                    <Image  Margin="15,15,0,15" HeightRequest="20"  Aspect="AspectFit" Source="calendar.png"/>
+                                    <Label  Margin="0,15,0,0" Text="666 Ноября"  FontFamily="RubikR" FontSize="20" TextColor="Black" />
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Grid>
+                    </Frame>
+                    <Frame Margin="0,0,0,10" Padding="0" HasShadow="True">
+                        <Grid>
+                            <StackLayout Orientation="Horizontal" Padding="0" BackgroundColor="#FAFAFA">
+                                <Frame HorizontalOptions="EndAndExpand" Padding="0" HasShadow="False">
+                                    <Grid>
+                                        <Image HeightRequest="100" WidthRequest="200" Aspect="AspectFill" Source="pomoika.png" Opacity="0.9"/>
+                                        <Frame >
+                                            <Frame.Background>
+                                                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"     Endpoint defaults to (1,1) -->
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,1">
+                                                    <GradientStop Color="#FAFAFA" Offset="0" />
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                </LinearGradientBrush>
+
+                                            </Frame.Background>
+                                        </Frame>
+                                        <Frame  >
+                                            <Frame.Background>
+                                                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"     Endpoint defaults to (1,1) -->
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,1">
+                                                    <GradientStop Color="#FAFAFA" Offset="0" />
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                </LinearGradientBrush>
+
+                                            </Frame.Background>
+                                        </Frame>
+                                        <Frame WidthRequest="10" >
+                                            <Frame.Background>
+                                                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"     Endpoint defaults to (1,1) -->
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,1">
+                                                    <GradientStop Color="#FAFAFA" Offset="0" />
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                </LinearGradientBrush>
+
+                                            </Frame.Background>
+                                        </Frame>
+                                    </Grid>
+                                </Frame>
+
+
+
+                            </StackLayout>
+                            <StackLayout >
+                                <StackLayout Orientation="Horizontal" Padding="0">
+                                    <Label  Margin="15,10,0,0" Text="Стем «Вирус»"  FontFamily="RubikR" FontSize="20" TextColor="Black" />
+                                    <Image HorizontalOptions="EndAndExpand" Margin="15,10,15,0"  HeightRequest="20"  Aspect="AspectFit" Source="notificationActivityFILL.png"/>
+                                </StackLayout>
+                                <Label  Margin="15,-5,0,0"  Text="студ дебют"  FontFamily="RubikL" FontSize="20" TextColor="Gray" />
+                                <StackLayout  HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" Orientation="Horizontal">
+                                    <Image  Margin="15,15,0,15" HeightRequest="20"  Aspect="AspectFit" Source="calendar.png"/>
+                                    <Label  Margin="0,15,0,0" Text="322 Декабря"  FontFamily="RubikR" FontSize="20" TextColor="Black" />
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Grid>
+                    </Frame>
+                   
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

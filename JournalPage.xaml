@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             x:Class="XGups.JournalPage">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout.Background>
+                <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"   
+             Endpoint defaults to (1,1) -->
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#9191FF"
+                          Offset="0" />
+                    <GradientStop Color="#6A6AFF"
+                          Offset="0.2" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Label  Margin="30,20,0,20" Text="Журнал" FontFamily="RubikB" FontSize="30" TextColor="White" />
+
+            <yummy:PancakeView 
+                Margin="0"
+                CornerRadius="60,60,0,0"
+                BackgroundColor="#FFFFFF"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <StackLayout>
+                        <Label Margin="50,30,0,20" Text="Общая статистика" FontFamily="RubikM" FontSize="20" TextColor="Black" />
+                        <Frame Margin="20,0,20,0" BackgroundColor="#C3C3F8">
+                            <StackLayout>
+                                <Label Margin="20,0,0,0"  Text="Пропущено" FontFamily="RubikR" FontSize="20" TextColor="Black" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label HorizontalOptions="StartAndExpand" Margin="40,0,0,0"  Text="Лекций:" FontFamily="RubikL" FontSize="20" TextColor="DimGray" />
+                                    <Label HorizontalOptions="EndAndExpand" Margin="0,0,40,0"  Text="{Binding Lek, StringFormat='{0}%'}" FontFamily="RubikL" FontSize="20" TextColor="DimGray" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Margin="40,0,0,0"  Text="Лаб / практик:" FontFamily="RubikL" FontSize="20" TextColor="DimGray"/>
+                                    <Label HorizontalOptions="EndAndExpand" Margin="0,0,40,0"  Text="{Binding Lab, StringFormat='{0}%'}" FontFamily="RubikL" FontSize="20" TextColor="DimGray" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Margin="40,0,0,0"  Text="Всего:" FontFamily="RubikL" FontSize="20" TextColor="DimGray" />
+                                    <Label HorizontalOptions="EndAndExpand" Margin="0,0,40,0"  Text="{Binding All, StringFormat='{0}%'}" FontFamily="RubikL" FontSize="20" TextColor="DimGray" />
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="StartAndExpand">
+                        <CarouselView BackgroundColor="White" ItemsSource="{Binding Lessons}">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Margin="40,0,0,0" WidthRequest="15" HeightRequest="15"  Source="book.png"/>
+                                            <Label Margin="0,0,0,0"  Text="{Binding JTeacher.namedis}" FontFamily="RubikR" FontSize="20" TextColor="Black" />
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Margin="40,0,0,0" WidthRequest="15" HeightRequest="15"  Source="user.png"/>
+                                            <Label Margin="0,0,0,0"  Text="{Binding JTeacher.fio}" FontFamily="RubikR" FontSize="19" TextColor="DimGray" />
+                                        </StackLayout>
+                                        <Frame Margin="20,0,20,0" BackgroundColor="#C3C3F8">
+                                            <StackLayout>
+                                                <Label Margin="20,0,0,0"  Text="Пропущено" FontFamily="RubikR" FontSize="20" TextColor="Black" />
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label HorizontalOptions="StartAndExpand" Margin="40,0,0,0"  Text="Лекций:" FontFamily="RubikL" FontSize="20" TextColor="DimGray" />
+                                                    <Label HorizontalOptions="EndAndExpand" Margin="0,0,40,0"  FontFamily="RubikL" FontSize="20" TextColor="DimGray">
+                                                        <Label.Text>
+                                                            <MultiBinding StringFormat="{}{0}%">
+                                                                <Binding Path="emlek" />
+                                                            </MultiBinding>
+                                                        </Label.Text>
+                                                    </Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Margin="40,0,0,0"  Text="Лаб / практик:" FontFamily="RubikL" FontSize="20" TextColor="DimGray"/>
+                                                    <Label HorizontalOptions="EndAndExpand" Margin="0,0,40,0"  FontFamily="RubikL" FontSize="20" TextColor="DimGray">
+                                                        <Label.Text>
+                                                            <MultiBinding StringFormat="{}{0}%">
+                                                                <Binding Path="emlab" />
+                                                            </MultiBinding>
+                                                        </Label.Text>
+                                                    </Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Margin="40,0,0,0"  Text="Всего:" FontFamily="RubikL" FontSize="20" TextColor="DimGray" />
+                                                    <Label HorizontalOptions="EndAndExpand" Margin="0,0,40,0"  FontFamily="RubikL" FontSize="20" TextColor="DimGray">
+                                                        <Label.Text>
+                                                            <MultiBinding StringFormat="{}{0}%">
+                                                                <Binding Path="emall" />
+                                                            </MultiBinding>
+                                                        </Label.Text>
+                                                    </Label>
+                                                    
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                    </StackLayout>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XGups.MainPage">
+    <StackLayout BackgroundColor="#6A6AFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+        <StackLayout.Background>
+            <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"   
+             Endpoint defaults to (1,1) -->
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#9191FF"
+                          Offset="0.2" />
+                <GradientStop Color="#6A6AFF"
+                          Offset="1" />
+            </LinearGradientBrush>
+        </StackLayout.Background>
+        <StackLayout Padding="0,40,0,0" >
+            <Label Text="XGups" HorizontalTextAlignment="Center" FontSize="80"  FontFamily="RubikB" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <Grid HeightRequest="70"></Grid>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <Frame BackgroundColor="#F0F0F0" CornerRadius="25"  WidthRequest="250" >
+                <StackLayout Spacing="20" Padding="0,15,0,0">
+                    <Label TextColor="DimGray"  Text="Привет !" FontFamily="RubikR" FontSize="30" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+                    <Label TextColor="DarkGray" Text="Введи фамилию и имя, чтоб я мог найти расписание."  FontFamily="RubikL" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold"  HorizontalOptions="Center"/>
+                    <Frame BackgroundColor="#FFFFFF" CornerRadius="15" WidthRequest="10">
+                        <Entry x:Name="Name" TextChanged="Entry_TextChanged" TextColor="Black" Placeholder="Фамилия Имя" VerticalOptions="EndAndExpand" FontFamily="RubikR" HorizontalTextAlignment="Center" FontSize="20"></Entry>
+                    </Frame>
+                    <ScrollView>
+                            <Grid>
+                            <StackLayout  BindableLayout.ItemsSource="{Binding humanViewList}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame BackgroundColor="#FF9999" CornerRadius="20"  Padding="5">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Click}"></TapGestureRecognizer>
+                                                </Frame.GestureRecognizers>
+                                                <Label TextColor="Black" FontFamily="RubikR" Margin="3,3,3,3" FontSize="15">
+                                                    <Label.Text>
+                                                        <MultiBinding StringFormat="{}{0} {1}, {2}">
+                                                            <Binding Path="SecondName" />
+                                                            <Binding Path="FirstName"/>
+                                                            <Binding Path="GroupOrTeacher" />
+                                                        </MultiBinding>
+                                                    </Label.Text>
+                                                </Label>
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+
+                            </Grid>
+                        </ScrollView>
+                        <Grid>
+                        <Button  x:Name="LoginIN" Clicked="LoginIN_Clicked" BackgroundColor="#6A6AFF" Font="RubikB" FontSize="15" TextColor="#FFFFFF" Text="Зайти" IsEnabled="False">
+                        </Button>
+                        <ActivityIndicator x:Name="Activity" HorizontalOptions="End" IsRunning="False" Color="White"></ActivityIndicator>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+       
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XGups.MainMenu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+    xmlns:local="clr-namespace:XGups"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:DaysTypeToColorConverter x:Key="colorConverter" />
+            <local:DaysTypeToColorConverterForFonts x:Key="colorCForFonts" />
+            <local:LessonsTypeToColorConverter x:Key="lcolor" />
+            <local:LessonsTypeToColorConverterForFonts x:Key="'lcolorCForFonts" />
+            <local:LessonsTypeToVisibleConverter x:Key="'lvisible" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <StackLayout.Background>
+                    <!-- StartPoint defaults to (0,0)    BackgroundColor="#6A6AFF"   
+             Endpoint defaults to (1,1) -->
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#9191FF"
+                          Offset="0" />
+                        <GradientStop Color="#6A6AFF"
+                          Offset="0.2" />
+                    </LinearGradientBrush>
+                </StackLayout.Background>
+                <StackLayout Margin="20,10,20,0" Orientation="Horizontal">
+                    <Frame HeightRequest="-10" CornerRadius="8">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Logout}"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <Label Margin="-10,-15,-10,-10" Text="&lt;" FontFamily="RubikB" FontSize="20" TextColor="#6A6AFF"  />
+                    </Frame>
+                    <Grid HorizontalOptions="FillAndExpand"></Grid>
+                    <Frame HeightRequest="-10" CornerRadius="8">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ReverseSchedule}"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <Label Margin="-10,-15,-10,-10" Text="+" FontFamily="RubikB" FontSize="20" TextColor="#6A6AFF"  />
+                    </Frame>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalOptions="StartAndExpand" x:Name="DateLabel" Margin="25,0,0,0" Text="Сентябрь, 2022"  FontFamily="RubikM" FontSize="30" TextColor="White" />
+                </StackLayout>
+
+
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <StackLayout x:Name="StackCalendar" Orientation="Horizontal" Spacing="5" Padding="10,5,5,0" BindableLayout.ItemsSource="{Binding DaysOnCalendar}" >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <!--@ "#9191FF" -->
+                                <Frame CornerRadius="20" BackgroundColor="{Binding Type, Converter={StaticResource colorConverter}}">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ClickOnFrame}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout>
+                                        <Label HorizontalOptions="CenterAndExpand" Text="{Binding DayName}" TextTransform="Uppercase" TextColor="{Binding Type, Converter={StaticResource colorCForFonts}}"   FontFamily="RubikL"/>
+                                        <BoxView HeightRequest="1" WidthRequest="15" BackgroundColor="White"/>
+                                        <Label HorizontalOptions="Center" Text="{Binding DayNumber}" FontSize="15" TextColor="{Binding Type, Converter={StaticResource colorCForFonts}}" FontFamily="RubikB" />
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                        <BindableLayout.EmptyView>
+                            <Label Text="Ошибка, календарь отвалился :( над чет придумать."/>
+                        </BindableLayout.EmptyView>
+                    </StackLayout>
+                </ScrollView>
+                <yummy:PancakeView 
+                Margin="0"
+                CornerRadius="60,60,0,0"
+                HeightRequest="580"
+                BackgroundColor="#FFFFFF"
+                VerticalOptions="EndAndExpand">
+                    <StackLayout>
+                        <Label Margin="30,40,0,0" Text="Уроки в этот день" FontSize="20" TextColor="Black" FontFamily="RubikM" ></Label>
+                        <ScrollView >
+
+                            <StackLayout BindableLayout.ItemsSource="{Binding NewLessons}" >
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Padding="0,10,0,0" Orientation="Horizontal" >
+                                            <Ellipse
+                                            IsVisible="false"
+                                    Margin="30,22.5,0,0"
+                                    Fill="#6A6AFF"
+                                    WidthRequest="20"
+                                    HeightRequest="20" HorizontalOptions="Start" VerticalOptions="Start">
+                                            </Ellipse>
+                                            <Frame Margin="20,10,20,0" CornerRadius="10" BackgroundColor="{Binding Type, Converter={StaticResource lcolor}}" HorizontalOptions="FillAndExpand" HasShadow="False">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding AI}"></TapGestureRecognizer>
+                                                </Frame.GestureRecognizers>
+                                                <StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image VerticalOptions="Start" Source="calendar.png" Aspect="Fill" WidthRequest="15" HeightRequest="15"/>
+                                                        <Label VerticalOptions="Center" Margin="0,0,0,0" Text="{Binding PerfectTime}" TextColor="DimGray" FontSize="14" FontFamily="RubikR"/>
+                                                        <Label Margin="0,-5,0,0" Text="Через 5 мин" IsVisible="false"/>
+                                                    </StackLayout>
+
+                                                    <Label Text="{Binding Name}" TextColor="Black" FontSize="15" Margin="0,5,0,5" FontFamily="RubikM"/>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Aspect="Fill" WidthRequest="15" HeightRequest="15"  Source="user.png"/>
+                                                        <Label VerticalOptions="Center"  Text="{Binding Teacher}" TextColor="DimGray" FontSize="14" FontFamily="RubikR"/>
+
+                                                        <Image HorizontalOptions="EndAndExpand" WidthRequest="15" HeightRequest="15"  Source="pin.png"  VerticalOptions="Center"/>
+                                                        <Label VerticalOptions="Center" Text="{Binding Auditorium}" TextColor="DimGray" FontSize="14" FontFamily="RubikR"/>
+
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </Frame>
+
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                                <BindableLayout.EmptyView>
+                                    <StackLayout Padding="0,50,0,0" Spacing="50">
+                                        <Image VerticalOptions="Start" x:Name="PartyIMG" Source="HeartInEye.png" HeightRequest="225"/>
+                                        <Label HorizontalTextAlignment="Center" x:Name="PartyText" Text="В этот день нет пар!" FontSize="30" FontFamily="RubikB" TextColor="Black" HorizontalOptions="Center"/>
+                                    </StackLayout>
+                                </BindableLayout.EmptyView>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                </yummy:PancakeView>
+            </StackLayout>
+            <Grid x:Name="GridBackgroundLock" VerticalOptions="Fill" BackgroundColor="LightGray" Opacity="0.8"/>
+            <Grid x:Name="GridUpdate" VerticalOptions="Center" >
+                <Frame CornerRadius="20"  Margin="20,20,20,20" BackgroundColor="White">
+                    <StackLayout>
+                        <Label Scale="1.2" Margin="0,5,0,10" HorizontalOptions="CenterAndExpand"  Text="Вышло новое обновление!" HorizontalTextAlignment="Center" FontFamily="RubikM" FontSize="22" TextColor="Black" />
+                         <Frame x:Name="adFrame" BackgroundColor="Gray" Padding="3" HasShadow="True">
+                            <Image x:Name="updImage" >
+                            </Image>
+                        </Frame>
+                      
+                        <Button x:Name="UpdateButton" Margin="0,5,0,10" BackgroundColor="#6A6AFF" Text="Принял!" TextTransform="None"  FontSize="20" TextColor="White"  FontFamily="RubikR" CornerRadius="9" Clicked="UpdateButton_Clicked" ></Button>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
